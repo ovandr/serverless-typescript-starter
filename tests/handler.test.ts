@@ -6,7 +6,7 @@ test('hello', async () => {
 
     const callback: Callback = (error, response) => {
         expect(response.statusCode).toEqual(200);
-        expect(typeof response.body).toBe("string");
+        expect(typeof response.body).toBe('string');
     };
 
     await hello(event, null, callback);
