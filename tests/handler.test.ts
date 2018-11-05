@@ -1,13 +1,11 @@
-import { Callback } from 'aws-lambda';
 import { hello } from '../handler';
 
-test('hello', async () => {
+test('hello', () => {
     const event = 'event';
+    expect.assertions(2);
 
-    const callback: Callback = (error, response) => {
+    hello(event, null).then((response) => {
         expect(response.statusCode).toEqual(200);
         expect(typeof response.body).toBe('string');
-    };
-
-    await hello(event, null, callback);
+    });
 });
